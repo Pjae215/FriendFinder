@@ -10,15 +10,28 @@
     <title>FriendFinder</title>
 </head>
 <body>
-      <!-- Bootstrap Container -->
-    <div class="container">
-    <!-- Bootstrap Form Header -->       
-    <div class="panel panel-info text-important" style= "border-style:solid; border-color:navy;">
-            <div class="panel-heading"> <h3>FriendFinder Survey</h3><p id="error"></p></div>
+<section class= "heading">
+        <div class="container">
+                <div class="jumbotron">
+                        <h1>Friend Finder</h1> 
+                        <p>Let's find you some cool friends</p> 
+                        </div> 
+                <p>This is some text.</p> 
+                <button = class "btn btn-default btm-sm" id = "start"> Find My Friend</button>
+                <button = class "btn btn-default btm-sm" id = "reset"> Reset</button>
+        </div>
+</section>
+
+<section class= "form">
+      <!-- Bootstrap Survey Container -->
+    <div class="container">       
+
+        <h3>FriendFinder Survey</h3><p id="intro">
             <p> Read each statement. Choose the option that is the closest represenation of how you feel about the statement.</p>
-            <div class="panel-body"></div>
+        
             
 <!-- Bootstrap Form--> 
+            
     <form>    
             <div class="form-group">
                     <label for="text">Name</label>
@@ -115,27 +128,29 @@
             <a href="#"></a><p style= text-align:center>Cancel</p></a>
     </form>
             </div>
-            </div>
+             </div>
+</section>
+        </body> 
 
-        </body>     
     <!--JavaScript-->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src= "assets/javascript/app.js"></script>       
+        <script type="text/javascript" src= "./friendfinder.js "></script> 
+        <script type="text/javascript" src= "./server.js"></script>       
               
 <footer class="footer">
     <div class="container">
         <div class="row align-items-center">      
         <div class="col-md-4"> 
-        <span class="copyright">Become our friend on social media</span>
+        <span class="copyright">Add me as a friend on social media</span>
             <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
-                    <a href="https://twitter.com/damagedpenny" class="fa fa-twitter"></a></li>
+                <a href="https://www.instagram.com/_pjae/" class="fa fa-instagram"></a></li>
                 <li class="list-inline-item">
-                    <a href="https://www.facebook.com/Karma.Israel" class="fa fa-facebook"></a></li>
+                <a href="https://www.facebook.com/Karma.Israel" class="fa fa-facebook"></a></li>
                 <li class="list-inline-item">
-                    <a href="https://www.instagram.com/_pjae/" class="fa fa-instagram"></a></li>
+                <a href="https://www.meetup.com/30s-and-40s-meetup-group/" class="fa fa-meetup"></a></li>
             </ul>
-            <span class="copyright">Copyright &copy; Paula Jordan 2019</span>
+            <span class="copyright">Copyright 2019 &copy; <a href"#"><span>API Friends List</span></a></span>
         </div>
         </div>
     </div> 

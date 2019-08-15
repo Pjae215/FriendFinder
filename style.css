@@ -1,12 +1,19 @@
 
-
-
 body {
-  overflow: hidden;
-  background-color: pink; 
-  text-align: center;
+  background-color: rgb(98, 183, 211);
 }
 
+.jumbotron{
+background-color: navy;
+color: white;
+}
+
+.heading
+{visibility: visible;
+}
+.form {
+  display: none;
+}
 
 .container {
   position: relative;
@@ -15,8 +22,9 @@ body {
   max-width: 300px;
   padding: 5px;
   background-color: white;
+  border-style: solid; 
+  border-color:navy; 
 }
-
 p { 
   color:darkblue;
   font-family: 'Poppins', sans-serif;
