@@ -1,2 +1,1 @@
-# FriendFinder
-A compatibility-based "FriendFinder" application 
+# FriendFinder_

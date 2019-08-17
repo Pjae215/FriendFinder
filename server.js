@@ -27,10 +27,6 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
-
-// to route to the html directory
-// app.use(express.static('./app/public'));
-
 //api and html routes to files
 require('./app/routing/apiRoutes.js')(app); 
 require('./app/routing/htmlRoutes.js')(app);
