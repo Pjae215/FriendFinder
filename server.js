@@ -1,5 +1,5 @@
 //set up dependencies
-var express = require('express');
+var express = require("express");
 var mysql = require("mysql");
 
 //creates express server and sets up a port

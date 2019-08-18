@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/Pjae215/FriendFinder#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "path": "^0.12.7"
+    "express": "file:node_modules/express",
+    "path": "^0.12.7",
+    "require": "^2.4.20"
   }
 }
