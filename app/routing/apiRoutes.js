@@ -1,42 +1,39 @@
+//Dependencies/Variables
 var friends = require("../data/friends");
 
-
+//Linking JS
 module.exports = function(app){
-	app.get("api/friends", function(req, res){
-		 return res.json(friends);
-	});
 
-// Create New Characters - takes in JSON input
-app.post("/api/friends", function(req, res) {
-	// var newFriend = req.body;
-	var newScore = 0;
-	var total = 0;
-	var match = {
-		name: "",
-		photo: "",
-		difference: 10000
-	}
-
-	// Calculating totals 
-	for (var i = 0; i < friends.length; i++) {
-		total = 0;
-
-		for (var j = 0; j < friends[i].preferences.length; j++) {
-			total += Math.abs(friends[i].preferences[j] - newFriend.preferences[j]);
-
-			if (total <= match.difference) {
-				match.name = friends[i].name,
-				match.photo = friends[i].photo,
-				match.difference = total
-			}
-    	}
-    }
-    friends.push(newFriend);
-    res.json(match);
-    console.log(match);
+//Getting json from stock friends
+app.get("/api/friends", function(req, res){
+res.json(friends);
 });
-}
-   
 
-    
-    
+//Posting json from user
+app.post("/api/friends", function(req, res) {
+friends.push(req.body);
+
+//variables to create totals and matches
+var newfriendScore = req.body.totals;
+var bestofFriends = 0;
+var minScore = 50;
+	
+//Looping through stock friends and user data
+for (var i = 0; i < (friends.length - 1); i++) {
+var compScore = friends[i].totals;
+var totalDifference = 0;
+
+for (var j = 0; j < (newfriendScore.length-1); j++) {
+var matchDifference = Math.abs(parseInt(newfriendScore[j]) - parseInt(compScore[j]));
+ 
+//Defining to totals difference
+totalDifference = totalDifference + matchDifference;
+    }
+// Finding a match
+if (totalDifference < minScore) {
+minScore = totalDifference;
+bestofFriends = i;
+  }}
+res.send(friends[bestofFriends]);
+});
+};

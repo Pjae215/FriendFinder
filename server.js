@@ -1,35 +1,19 @@
-//set up dependencies
+//Dependencies/Variables
 var express = require("express");
-var mysql = require("mysql");
+var app = express();
+var bodyParser = require("body-parser"); 
+var PORT = 8080; 
 
-//creates express server and sets up a port
-var app = express(); 
-var port = process.env.PORT || 8080; 
+//To parse different types of JSON
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json({ type: 'application/*+json' }))
+app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }))
+app.use(bodyParser.text({ type: 'text/html' }))
 
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+//server routes
+require("./app/routing/apiRoutes.js") (app); 
+require("./app/routing/htmlRoutes.js")(app); 
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "paula",
-  database: "task_saver_db"
-});
-
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-
-  console.log("connected as id " + connection.threadId);
-});
-
-//api and html routes to files
-require('./app/routing/apiRoutes.js')(app); 
-require('./app/routing/htmlRoutes.js')(app);
-
-//Listening to the port that was set up
-app.listen(port, function(){ console.log("Listening on port #s", port)});
+app.listen(PORT, function(){
+    console.log("Server is listening on PORT#: " + PORT); 
+}); 
